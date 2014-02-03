@@ -1,0 +1,91 @@
+FORMAT: 1A
+HOST: https://beta.pxl.pl/api/
+
+# Reservation API
+Reservations API is a *short texts saving* service similar to its physical paper presence on your table.
+
+## Allowed HTTPs requests:
+
+    POST   :   To create a resource
+    GET    :   Get a resource or list of resources
+    DELETE :   To delete resource
+    PUT    :   To update a resource
+
+## Description Of Usual Server Responses
+
+- 200 `OK` - the request was successful.
+- 201 `Created` - the request was successful and a resource was created.
+- 204 `No Content` - the request was successful but there is no representation to return (i.e. the response is empty).
+- 400 `Bad Request` - the request could not be understood or was missing required parameters.
+- 401 `Unauthorized` - authentication failed or user doesn't have permissions for requested operation.
+- 403 `Forbidden` - access denied.
+- 404 `Not Found` - resource was not found
+- 405 `Method Not Allowed` - requested method is not supported for resource.
+
+
+# Group Reservations
+Notes related resources of the **Notes API**
+
+## Reservation [/{account}/reservations/{id}]
+A single Reservation object with all its details
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": {
+            "id": 1
+        },
+        "meta": {}
+    }    
+    ```
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Reservation to perform action with. Has example value.
+
+### GET
++ Response 200 (application/json)
+    
+    [Reservation][]
+        
+        
+### DELETE
++ Response 200
+    
+    [Reservation][]
+
+
+
+## Reservation Collection [/{account}/reservations/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Reservation Collection][]
+
+### POST
++ Response 201 (application/json)
+
+    [Reservation][]
