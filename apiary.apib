@@ -82,7 +82,7 @@ A single Reservation object with all its details
 + Response 200
 
 
-## Reservation Collection [/{account}/reservations/]
+## Reservation Collection [/{account}/reservations/{?start__lte,end__gte,customer__id__in,employee__id__in,place__id__in}]
 
 + Model (application/json)
     
@@ -105,6 +105,9 @@ A single Reservation object with all its details
         "meta": {}
     }    
     ```
++ Parameters
+    + account (required, number, `1`) ... Numeric `id` of the Account to perform action with. 
+    + start__lte (optional, date, `2015-05-01T10:00:00Z`) ... Date of the start filter.
 
 ### GET
 + Response 200 (application/json)
