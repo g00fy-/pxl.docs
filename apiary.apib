@@ -1,8 +1,8 @@
 FORMAT: 1A
 HOST: https://beta.pxl.pl/api/
 
-# Reservation API
-Reservations API is a *short texts saving* service similar to its physical paper presence on your table.
+# PXL API
+
 
 ## Allowed HTTPs requests:
 
@@ -34,13 +34,38 @@ A single Reservation object with all its details
     
     ```js
     {
-        "data": {},
+        "data": {
+            "id": 1,
+            "customer": {
+                "id": 1,
+                "name": "John Webowski"
+            },
+            "employee": {
+                "id": 1,
+                "name": "John Doe",
+            },
+            "service": {
+                "id": 2, 
+                "name": "Medical Consultation",
+                "price": 5000
+            },
+            "place": {
+                "id": 3,
+                "name": "Medical Clinic"
+            },
+            "price": 5000,
+            "start": "2015-01-01T08:00:00Z",
+            "end": "2015-01-01T08:30:00Z",
+            "has_reminder": true,
+            "has_confirmation": true
+        },
         "meta": {}
     }    
     ```
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Reservation to perform action with. Has example value.
+    + account (required, number, `1`) ... Numeric `id` of the Account to perform action with. Has example value.
 
 ### GET
 + Response 200 (application/json)
@@ -48,11 +73,13 @@ A single Reservation object with all its details
     [Reservation][]
         
         
-### DELETE
+### POST
 + Response 200
     
     [Reservation][]
 
+### DELETE
++ Response 200
 
 
 ## Reservation Collection [/{account}/reservations/]
