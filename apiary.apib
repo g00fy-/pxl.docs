@@ -21,10 +21,11 @@ Reservations API is a *short texts saving* service similar to its physical paper
 - 403 `Forbidden` - access denied.
 - 404 `Not Found` - resource was not found
 - 405 `Method Not Allowed` - requested method is not supported for resource.
+- 406 `Not Acceptable` - requested payload is not valid for resource.
 
 
 # Group Reservations
-Notes related resources of the **Notes API**
+
 
 ## Reservation [/{account}/reservations/{id}]
 A single Reservation object with all its details
@@ -33,9 +34,7 @@ A single Reservation object with all its details
     
     ```js
     {
-        "data": {
-            "id": 1
-        },
+        "data": {},
         "meta": {}
     }    
     ```
@@ -89,3 +88,411 @@ A single Reservation object with all its details
 + Response 201 (application/json)
 
     [Reservation][]
+
+
+
+
+
+
+
+
+# Group Employees
+
+
+## Employee [/{account}/employees/{id}]
+A single Employee object with all its details
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": {},
+        "meta": {}
+    }    
+    ```
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Employee to perform action with. Has example value.
+
+### GET
++ Response 200 (application/json)
+    
+    [Employee][]
+        
+        
+### DELETE
++ Response 200
+    
+    [Employee][]
+
+
+
+## Employee Collection [/{account}/employees/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Employee Collection][]
+
+### POST
++ Response 201 (application/json)
+
+    [Employee][]
+
+
+
+
+
+
+
+
+
+
+
+
+# Group Resources
+
+
+## Resource [/{account}/resources/{id}]
+A single Resource object with all its details
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": {
+            "id": 1,
+            "resource": {"id":1, "name":"John Doe"},
+            "service":{"id":1, name:"Manicure"}
+        },
+        "meta": {}
+    }    
+    ```
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Resource to perform action with. Has example value.
+
+### GET
++ Response 200 (application/json)
+    
+    [Resource][]
+        
+        
+### DELETE
++ Response 200
+    
+    [Resource][]
+
+
+
+## Resource Collection [/{account}/resources/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Resource Collection][]
+
+### POST
++ Response 201 (application/json)
+
+    [Resource][]
+
+
+
+
+
+
+
+# Group Customers
+
+
+## Customer [/{account}/customers/{id}]
+A single Customer object with all its details
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": {
+            "id": 1,
+            "customer": {"id":1, "name":"John Doe"},
+            "service":{"id":1, name:"Manicure"}
+        },
+        "meta": {}
+    }    
+    ```
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Customer to perform action with. Has example value.
+
+### GET
++ Response 200 (application/json)
+    
+    [Customer][]
+        
+        
+### DELETE
++ Response 200
+    
+    [Customer][]
+
+
+
+## Customer Collection [/{account}/customers/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Customer Collection][]
+
+### POST
++ Response 201 (application/json)
+
+    [Customer][]
+
+
+
+
+
+
+
+# Group Places
+
+
+## Place [/{account}/places/{id}]
+A single Place object with all its details
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": {},
+        "meta": {}
+    }    
+    ```
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Place to perform action with. Has example value.
+
+### GET
++ Response 200 (application/json)
+    
+    [Place][]
+        
+        
+### DELETE
++ Response 200
+    
+    [Place][]
+
+
+
+## Place Collection [/{account}/places/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Place Collection][]
+
+### POST
++ Response 201 (application/json)
+
+    [Place][]
+
+
+
+
+# Group Services
+
+
+## Service [/{account}/services/{id}]
+
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": {
+            "id": 1,
+            "service": {"id":1, "name":"John Doe"},
+            "service":{"id":1, name:"Manicure"}
+        },
+        "meta": {}
+    }    
+    ```
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Service to perform action with. Has example value.
+
+### GET
++ Response 200 (application/json)
+    
+    [Service][]
+        
+        
+### DELETE
++ Response 200
+    
+    [Service][]
+
+
+
+## Service Collection [/{account}/services/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Service Collection][]
+
+### POST
++ Response 201 (application/json)
+
+    [Service][]
+
+
+
+
+# Group Proposals
+
+
+
+## Proposal Collection [/{account}/proposals/]
+
++ Model (application/json)
+    
+    ```js
+    {
+        "data": [
+            {
+                "id": 1, 
+                ...
+            },
+            {
+                "id": 2,
+                ...
+            },
+            {
+                "id": 3,
+                ...
+            },
+        ],
+        "meta": {}
+    }    
+    ```
+
+### GET
++ Response 200 (application/json)
+
+    [Proposal Collection][]
+
+
